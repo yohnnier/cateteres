@@ -1,0 +1,474 @@
+<!--
+  Si estás pegando esto dentro del editor HTML de Moodle, asegúrate de:
+  1) Activar la vista HTML (icono “<>”).
+  2) Pegar todo el contenido de este bloque. 
+  3) Guardar y comprobar que el tema de Moodle permite cargar CSS y JS externos (Bootstrap 5).
+-->
+
+<!-- --- Estilos y dependencias CSS --- -->
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<style>
+  /* --- Estilos personalizados para el acordeón --- */
+  body {
+    background-color: #f8f9fa;
+    padding: 20px;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  h2 {
+    color: #0d47a1;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+
+  .accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .accordion-item {
+    border: none;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .accordion-button {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+
+  .accordion-button:not(.collapsed) {
+    background-color: #1565c0;
+    color: #ffffff;
+  }
+
+  .accordion-button .icono {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+  }
+
+  .accordion-button:focus {
+    box-shadow: none;
+  }
+
+  .accordion-body {
+    background: #ffffff;
+    padding: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .detalle-line {
+    margin-bottom: 12px;
+  }
+
+  .btn-imagen {
+    margin-top: 12px;
+    background: #1565c0;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-imagen:hover {
+    background: #0d47a1;
+  }
+
+  /* Pop-ups más pequeños e intuitivos */
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    cursor: pointer;
+  }
+
+  .popup-contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: default;
+  }
+
+  /* Efecto lupa (zoom al 200%) en las imágenes de los pop-ups */
+  .popup-contenido img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+  }
+  .popup-contenido img:hover {
+    transform: scale(2);
+  }
+
+  .btn-cerrar {
+    background: transparent;
+    color: #555555;
+    border: none;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    cursor: pointer;
+  }
+
+  .btn-cerrar:hover {
+    color: #0d47a1;
+  }
+</style>
+
+<!-- --- Contenido HTML del acordeón --- -->
+<h2>Catéteres Vasculares</h2>
+
+<!-- Sonido al expandir/collapse -->
+<audio id="clickSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+
+<div class="accordion" id="accordionCateteres">
+  <!-- Venoso periférico -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading1">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse1"
+        aria-expanded="false"
+        aria-controls="collapse1"
+        onclick="document.getElementById('clickSound').play()"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1321/1321324.png"
+          class="icono"
+          alt="Venoso periférico"
+        />
+        Venoso periférico
+      </button>
+    </h2>
+    <div
+      id="collapse1"
+      class="accordion-collapse collapse"
+      aria-labelledby="heading1"
+      data-bs-parent="#accordionCateteres"
+    >
+      <div class="accordion-body">
+        <div class="detalle-line"><strong>Duración:</strong> 72–96 horas.</div>
+        <div class="detalle-line"><strong>Indicación:</strong> administración de fluidos, medicamentos y transfusiones de corta duración.</div>
+        <div class="detalle-line"><strong>Zona de inserción:</strong> venas de extremidades superiores, preferentemente en el dorso de la mano o antebrazo.</div>
+        <div class="detalle-line"><strong>Calibres:</strong> 14–24 G.</div>
+        <div class="detalle-line"><strong>Complicaciones:</strong> flebitis, extravasación, hematomas, infección local.</div>
+        <div class="detalle-line"><strong>Cuidados generales:</strong> técnica aséptica en inserción, cambio de apósito cada 72 horas, limpieza con clorhexidina al 2%, monitorizar signos de infección.</div>
+        <div class="detalle-line"><strong>Cuidados específicos:</strong> evitar maniobras de flexión excesiva del sitio, asegurar buen fijado con vendaje adhesivo, evaluar permeabilidad cada turno y sustituir si haya signos inflamatorios.</div>
+        <button
+          class="btn-imagen"
+          onclick="document.getElementById('popupPeriferico').style.display = 'block';"
+        >Ver imagen del catéter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Midline -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading2">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse2"
+        aria-expanded="false"
+        aria-controls="collapse2"
+        onclick="document.getElementById('clickSound').play()"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/12854/12854637.png"
+          class="icono"
+          alt="Midline"
+        />
+        Midline
+      </button>
+    </h2>
+    <div
+      id="collapse2"
+      class="accordion-collapse collapse"
+      aria-labelledby="heading2"
+      data-bs-parent="#accordionCateteres"
+    >
+      <div class="accordion-body">
+        <div class="detalle-line"><strong>Duración:</strong> Hasta 4 semanas.</div>
+        <div class="detalle-line"><strong>Indicación:</strong> terapias intravenosas de media duración, fluidos isotónicos y antibióticos de infusión lenta.</div>
+        <div class="detalle-line"><strong>Zona de inserción:</strong> vena braquial o axilar proximal, evitando articulaciones y zonas con edema.</div>
+        <div class="detalle-line"><strong>Ubicación de la punta:</strong> en la vena axilar proximal, sin avanzar hacia subclavia.</div>
+        <div class="detalle-line"><strong>Calibres:</strong> 18–20 G.</div>
+        <div class="detalle-line"><strong>Complicaciones:</strong> flebitis química, trombosis, extravasación tardía.</div>
+        <div class="detalle-line"><strong>Cuidados generales:</strong> inserción con técnica estéril de campo completo, apósito semipermeable y cambio semanal, evitar soluciones hiperósmolas.</div>
+        <div class="detalle-line"><strong>Cuidados específicos:</strong> rotar sello de fijación cada 7 días, evaluar permeabilidad con flush de solución salina antes y después de cada uso, no usar para extracciones sanguíneas.</div>
+        <button
+          class="btn-imagen"
+          onclick="document.getElementById('popupMidline').style.display = 'block';"
+        >Ver imagen del catéter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PICC -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading3">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse3"
+        aria-expanded="false"
+        aria-controls="collapse3"
+        onclick="document.getElementById('clickSound').play()"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/10165/10165851.png"
+          class="icono"
+          alt="PICC"
+        />
+        PICC
+      </button>
+    </h2>
+    <div
+      id="collapse3"
+      class="accordion-collapse collapse"
+      aria-labelledby="heading3"
+      data-bs-parent="#accordionCateteres"
+    >
+      <div class="accordion-body">
+        <div class="detalle-line"><strong>Duración:</strong> Semanas a meses (6–12 semanas promedio).</div>
+        <div class="detalle-line"><strong>Indicación:</strong> acceso venoso central prolongado para nutrición parenteral, quimioterapia, hemoderivados.</div>
+        <div class="detalle-line"><strong>Zona de inserción:</strong> vena basílica, cefálica o braquial.</div>
+        <div class="detalle-line"><strong>Ubicación de la punta:</strong> en la unión cavoatrial, confirmada con Rx.</div>
+        <div class="detalle-line"><strong>Calibres:</strong> 4–6 French (1.3–2.0 mm).</div>
+        <div class="detalle-line"><strong>Complicaciones:</strong> trombosis venosa profunda, migración, infección del túnel, síndrome del manguito del catéter.</div>
+        <div class="detalle-line"><strong>Cuidados generales:</strong> instalación en sala estéril, apósito estéril de barrera completa y cambio cada 7 días, limpieza con clorhexidina al 2%, flush con solución salina y heparina según protocolo.</div>
+        <div class="detalle-line"><strong>Cuidados específicos:</strong> uso de técnica SASH (Salina–Antibiótico–Salina–Heparina), rotación de posición del catéter con cada cambio de apósito, valoración ecográfica semanal de trombosis, educación al paciente para evitar esfuerzos excesivos.</div>
+        <button
+          class="btn-imagen"
+          onclick="document.getElementById('popupPICC1').style.display = 'block';"
+        >Ver imagen (Partes)</button>
+        <button
+          class="btn-imagen"
+          onclick="document.getElementById('popupPICC2').style.display = 'block';"
+        >Ver imagen (Tipos)</button>
+        <button
+          class="btn-imagen"
+          onclick="document.getElementById('popupPICC3').style.display = 'block';"
+        >Ver imagen (Port)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Venoso central -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading4">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse4"
+        aria-expanded="false"
+        aria-controls="collapse4"
+        onclick="document.getElementById('clickSound').play()"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4102/4102396.png"
+          class="icono"
+          alt="Venoso central"
+        />
+        Venoso central
+      </button>
+    </h2>
+    <div
+      id="collapse4"
+      class="accordion-collapse collapse"
+      aria-labelledby="heading4"
+      data-bs-parent="#accordionCateteres"
+    >
+      <div class="accordion-body">
+        <div class="detalle-line"><strong>Duración:</strong> Días a semanas (según necesidad terapéutica, promedio 7–14 días).</div>
+        <div class="detalle-line"><strong>Indicación:</strong> administración de soluciones irritantes o vasopresores, monitorización hemodinámica.</div>
+        <div class="detalle-line"><strong>Zona de inserción:</strong> subclavia o yugular interna.</div>
+        <div class="detalle-line"><strong>Ubicación de la punta:</strong> en vena cava superior, confirmada con Rx o ECG.</div>
+        <div class="detalle-line"><strong>Calibres:</strong> 4–8 French (1.3–2.7 mm).</div>
+        <div class="detalle-line"><strong>Complicaciones:</strong> neumotórax, infección sistémica, trombosis de vena cava, fuga aérea.</div>
+        <div class="detalle-line"><strong>Cuidados generales:</strong> cambio de apósito semipermeable cada 48–72 h, desinfección del puerto antes de cada conexión, flush con solución heparinizada, monitorizar sitio y signos vitales.</div>
+        <div class="detalle-line"><strong>Cuidados específicos:</strong> valorar posición con Rx cada 5–7 días, mantener sello de heparina en luminales no usados, uso de válvula de seguridad antibacteriana, inmovilización del miembro ipsilateral.</div>
+        <button
+          class="btn-imagen"
+          onclick="document.getElementById('popupCentral').style.display = 'block';"
+        >Ver imagen del catéter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arterial -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading5">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse5"
+        aria-expanded="false"
+        aria-controls="collapse5"
+        onclick="document.getElementById('clickSound').play()"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/7474/7474074.png"
+          class="icono"
+          alt="Arterial"
+        />
+        Arterial
+      </button>
+    </h2>
+    <div
+      id="collapse5"
+      class="accordion-collapse collapse"
+      aria-labelledby="heading5"
+      data-bs-parent="#accordionCateteres"
+    >
+      <div class="accordion-body">
+        <div class="detalle-line"><strong>Duración:</strong> Según objetivos terapéuticos (común: 3–7 días).</div>
+        <div class="detalle-line"><strong>Indicación:</strong> monitorización hemodinámica continua, muestreo sanguíneo frecuente para gases arteriales.</div>
+        <div class="detalle-line"><strong>Zona de inserción:</strong> arterias radial (preferible) o femoral, sitio limpio y antiséptico.</div>
+        <div class="detalle-line"><strong>Calibres:</strong> 20–22 G (1.1–1.3 mm).</div>
+        <div class="detalle-line"><strong>Complicaciones:</strong> hematoma, isquemia distal, lesión nerviosa, infección local.</div>
+        <div class="detalle-line"><strong>Cuidados generales:</strong> mantener presión de sellado con infusor a 300 mmHg, cambiar apósito con clorhexidina cada 72 h, comprobar pulso distal cada 2 h, mantener nivel de transductor al nivel del corazón.</div>
+        <div class="detalle-line"><strong>Cuidados específicos:</strong> colocar vendaje semirrígido para evitar desplazamiento, evaluar continuamente perfusión distal (índice tobillo brazo o capilar), retirar catéter si signos de isquemia, practicar test de Allen antes de inserción.</div>
+        <button
+          class="btn-imagen"
+          onclick="document.getElementById('popupArterial').style.display = 'block';"
+        >Ver imagen del catéter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- —— POP-UPS —— -->
+
+<!-- Venoso Periférico -->
+<div id="popupPeriferico" class="popup-overlay" onclick="this.style.display='none';">
+  <div class="popup-contenido" onclick="event.stopPropagation();">
+    <button class="btn-cerrar" onclick="document.getElementById('popupPeriferico').style.display='none';">&times;</button>
+    <h5>Catéter Venoso Periférico</h5>
+    <img
+      src="https://yoamoenfermeriablog.com/wp-content/uploads/2018/08/2.png"
+      alt="Catéter Venoso Periférico"
+    />
+  </div>
+</div>
+
+<!-- Midline -->
+<div id="popupMidline" class="popup-overlay" onclick="this.style.display='none';">
+  <div class="popup-contenido" onclick="event.stopPropagation();">
+    <button class="btn-cerrar" onclick="document.getElementById('popupMidline').style.display='none';">&times;</button>
+    <h5>Catéter Midline</h5>
+    <img
+      src="https://www.teleflex.com/la/es/product-areas/vascular-access/peripheral-access/midline-catheters/arrowgard-blue-advance-midline/midline-cg-features-v2_ES.png"
+      alt="Catéter Midline"
+    />
+  </div>
+</div>
+
+<!-- PICC Partes -->
+<div id="popupPICC1" class="popup-overlay" onclick="this.style.display='none';">
+  <div class="popup-contenido" onclick="event.stopPropagation();">
+    <button class="btn-cerrar" onclick="document.getElementById('popupPICC1').style.display='none';">&times;</button>
+    <h5>Partes del PICC</h5>
+    <img
+      src="https://www.teleflex.com/la/es/product-areas/vascular-access/central-access/peripherally-inserted-cc/picc-callouts-v3_ES.png"
+      alt="Partes del PICC"
+    />
+  </div>
+</div>
+
+<!-- PICC Tipos -->
+<div id="popupPICC2" class="popup-overlay" onclick="this.style.display='none';">
+  <div class="popup-contenido" onclick="event.stopPropagation();">
+    <button class="btn-cerrar" onclick="document.getElementById('popupPICC2').style.display='none';">&times;</button>
+    <h5>Tipos de PICC</h5>
+    <img
+      src="https://femora.sergas.gal/Coidados-das-vias-sondas-e-drenaxes/ImaxesCP/Caracteristicas%20PICC%20Cas.JPG"
+      alt="Tipos de PICC"
+    />
+  </div>
+</div>
+
+<!-- PICC Port -->
+<div id="popupPICC3" class="popup-overlay" onclick="this.style.display='none';">
+  <div class="popup-contenido" onclick="event.stopPropagation();">
+    <button class="btn-cerrar" onclick="document.getElementById('popupPICC3').style.display='none';">&times;</button>
+    <h5>PICC Port</h5>
+    <img
+      src="https://elenfermerodelpendiente.com/wp-content/uploads/2016/06/port_1.gif?w=426&h=320&crop=1"
+      alt="PICC Port"
+    />
+  </div>
+</div>
+
+<!-- Venoso Central -->
+<div id="popupCentral" class="popup-overlay" onclick="this.style.display='none';">
+  <div class="popup-contenido" onclick="event.stopPropagation();">
+    <button class="btn-cerrar" onclick="document.getElementById('popupCentral').style.display='none';">&times;</button>
+    <h5>Catéter Venoso Central</h5>
+    <img
+      src="https://blob.medicinaysaludpublica.com/images/2023/12/16/catetermesa-de-trabajo-1-29b282c7.jpg"
+      alt="Catéter Venoso Central"
+    />
+  </div>
+</div>
+
+<!-- Arterial -->
+<div id="popupArterial" class="popup-overlay" onclick="this.style.display='none';">
+  <div class="popup-contenido" onclick="event.stopPropagation();">
+    <button class="btn-cerrar" onclick="document.getElementById('popupArterial').style.display='none';">&times;</button>
+    <h5>Catéter Arterial</h5>
+    <img
+      src="https://www.teleflex.com/la/es/product-areas/vascular-access/arterial-access/seldinger-catheter/call-out-Seldinger-Catheter-gray_ES.png"
+      alt="Catéter Arterial"
+    />
+  </div>
+</div>
+
+<!-- --- Scripts de Bootstrap 5 --- -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
